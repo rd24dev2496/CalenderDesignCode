@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CalenderDesign</string>
+
+    <string name="_22_september">22/september</string>
+    <string name="_11_45_am">11:45 am</string>
+    <string name="october_2021">October 2021</string>
+    <string name="happy_birthday_rahul">Happy Birthday Rahul</string>
+    <string name="from_rishabh">From Rishabh</string>
+    <string name="hii_i_am_rishabh">Hii I am Rishabh</string>
+    <string name="about">About</string>
+    <string name="home">Home</string>
+    <string name="navigation">Navigation</string>
+    <string name="october">October</string>
+    <string name="november">November</string>
+    <string name="live_as_if_you_were_to_die_tomorrow">Live as if you were to die tomorrow</string>
+    <string name="months_is">This Month is ::</string>
+    <string name="months_name">Months_name</string>
+    <string name="add_note">Add Note</string>
+    <string name="enter_a_note">Enter a Note</string>
+    <string name="submit_button">Submit Button</string>
+    <string name="calender">calender</string>
+    <string name="search">Search</string>
+</resources>

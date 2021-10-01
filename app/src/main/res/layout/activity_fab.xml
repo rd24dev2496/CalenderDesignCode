@@ -38,6 +38,14 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_month_date"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
     </LinearLayout>
 
 <TextView

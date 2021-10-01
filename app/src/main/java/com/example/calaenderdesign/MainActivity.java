@@ -22,21 +22,21 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
     Toolbar toolbar;
-  public Spinner spinner;
+    public Spinner spinner;
     TextView month_name;
+    String Ismonth ="April";
     String item,Date;
+    ArrayList<Integer> dates = new ArrayList<>(100);
+
     FloatingActionButton floatingActionButton;
     MyRecyclerViewAdapter adapters;
-
     ImageView imageView;
     private DatePickerDialog datePickerDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,8 +76,12 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
                 if (parent.getItemAtPosition(position).equals("ChooseCategory")){
                 }else{
                     item =parent.getItemAtPosition(position).toString();
+                    Ismonth =item;
+
                     month_name.setText(item);
                     Log.i("Month",month_name.toString());
+                    Log.d("MonthValue", Ismonth);
+
 
                 }
             }
@@ -87,42 +91,13 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
             }
         });
 
-
-        ArrayList<String> dates = new ArrayList<>();
-        dates.add("1");
-        dates.add("2");
-        dates.add("3");
-        dates.add("4");
-        dates.add("5");
-        dates.add("6");
-        dates.add("7");
-        dates.add("8");
-        dates.add("9");
-        dates.add("10");
-        dates.add("11");
-        dates.add("12");
-        dates.add("13");
-        dates.add("14");
-        dates.add("15");
-        dates.add("16");
-        dates.add("17");
-        dates.add("18");
-        dates.add("19");
-        dates.add("20");
-        dates.add("21");
-        dates.add("22");
-        dates.add("23");
-        dates.add("24");
-        dates.add("25");
-        dates.add("26");
-        dates.add("27");
-        dates.add("28");
-        dates.add("29");
-        dates.add("30");
+        ArrayList<Integer> dates = new ArrayList<>(100);
+        for (int i=1;i<=31;i++) {
+            dates.add(i);
+          }
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        adapters = new MyRecyclerViewAdapter(this, dates);
+        adapters = new MyRecyclerViewAdapter(this, dates, Ismonth);
         adapters.setClickListener((MyRecyclerViewAdapter.ItemClickListener) this);
         recyclerView.setAdapter(adapters);
 
@@ -179,9 +154,10 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     @Override
     public void onItemClick(View view, int position) {
         Toast.makeText(this, "You clicked " + adapters.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-
+/*
         Date=adapters.getItem(position);
-        Log.i("Date",adapters.getItem(position));
+        Log.d("Value",item);
+        Log.d("Date",adapters.getItem(position));*/
     }
 
 }

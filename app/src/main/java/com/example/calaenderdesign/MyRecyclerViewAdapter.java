@@ -16,15 +16,17 @@ import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private final List<String> mData;
+    private  List<Integer> mData;
 
+    String items;
     private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     int row_index=-1;
 
-    MyRecyclerViewAdapter(Context context, List<String> data) {
+    MyRecyclerViewAdapter(Context context, List<Integer> data,String item) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.items = item;
     }
 
     @NonNull
@@ -36,10 +38,15 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(@NonNull MyRecyclerViewAdapter.ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        String months= mData.get(position);
-        holder.myTextView.setText(animal);
-       // holder.month.setText(months);
+        Integer dates= mData.get(position);
+
+
+        holder.myTextView.setText(dates.toString());
+        holder.tv_month.setText(items);
+
+
+
+        // holder.month.setText(months);
         holder.linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,14 +68,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView,month;
+        TextView myTextView,tv_month;
 
         LinearLayout linearlayout;
         RecyclerView rv2;
         ViewHolder(View itemView ) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvAnimalName);
-            month=itemView.findViewById(R.id.month);
+            tv_month=itemView.findViewById(R.id.tv_month);
             linearlayout=itemView.findViewById(R.id.linearlayout);
             rv2=itemView.findViewById(R.id.recycler_view);
             itemView.setOnClickListener(this);
@@ -81,7 +88,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    Integer getItem(int id) {
         return mData.get(id) ;
     }
 

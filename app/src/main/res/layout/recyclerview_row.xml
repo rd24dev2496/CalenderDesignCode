@@ -14,12 +14,13 @@
         android:layout_height="match_parent"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:inputType="number"
         android:layout_gravity="center"
         android:padding="5dp"
         android:layout_marginStart="10dp"
         android:textSize="16sp"/>
     <TextView
-        android:id="@+id/month"
+        android:id="@+id/tv_month"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:textColor="@color/black"
